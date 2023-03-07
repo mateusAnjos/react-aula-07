@@ -10,7 +10,7 @@ const handleChange = (event) => {
   setMessage(event.target.value);
 };
 
-function handleClick(event){
+function handleClick(){
   
 setNumero([...numero, message]);
 
