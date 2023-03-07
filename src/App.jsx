@@ -8,12 +8,14 @@ const [message, setMessage] = useState('');
 
 const handleChange = (event) => {
   setMessage(event.target.value);
+  console.log(message)
 };
 
-function handleClick(){
-  
+const handleClick = () => {
 setNumero([...numero, message]);
 
+setMessage('')
+console.log(numero)
 }
 
 
@@ -21,11 +23,12 @@ setNumero([...numero, message]);
     <div className="content">
       <h1>Lista de números</h1>
 
-        <input type="number" name="num" id='num' onChange={handleChange}/>
+        <input type="text" value={message}  onChange={handleChange}/>
+
         <button  onClick={handleClick}>Clique</button>
      
       <ul>
-        {numero.map(numero => <li >{numero}</li>)}
+        {numero.map((numero, index) => <li key={index}>{numero}</li>)}
       </ul>
       
       
