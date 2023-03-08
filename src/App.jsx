@@ -3,19 +3,16 @@ import "./App.css"
 
 function App() {
 
-const [numero, setNumero] = useState([])
-const [message, setMessage] = useState('');
+const [numeros, setNumeros] = useState([])
+const [inputValue, setInputValue] = useState('');
 
 const handleChange = (event) => {
-  setMessage(event.target.value);
-  console.log(message)
+  setInputValue(event.target.value);
 };
 
 const handleClick = () => {
-setNumero([...numero, message]);
-
-setMessage('')
-console.log(numero)
+setNumeros([...numeros, inputValue]);
+setInputValue('')
 }
 
 
@@ -23,12 +20,12 @@ console.log(numero)
     <div className="content">
       <h1>Lista de números</h1>
 
-        <input type="text" value={message}  onChange={handleChange}/>
+        <input type="text" value={inputValue}  onChange={handleChange}/>
 
         <button  onClick={handleClick}>Clique</button>
      
       <ul>
-        {numero.map((numero, index) => <li key={index}>{numero}</li>)}
+        {numeros.map((numero, index) => <li key={index}>{numero}</li>)}
       </ul>
       
       
